@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/planets_graph"
+    app:startDestination="@id/Planets_Catalog">
+
+    <fragment
+        android:id="@+id/Planets_Catalog"
+        android:name="com.smdev.universe.planetbrowser.catalog.PlanetsListFragment"
+        tools:layout="@layout/fragment_planets_list"
+        android:label="@string/catalog">
+        <action
+            android:id="@+id/Catalog_to_Detail"
+            app:destination="@id/Planet_Detail"
+            app:enterAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/Planet_Detail"
+        android:name="com.smdev.universe.planetbrowser.detail.PlanetDetailFragment"
+        tools:layout="@layout/fragment_planet_detail"
+        android:label="@string/data">
+        <action android:id="@+id/Detail_To_Catalog"
+            app:destination="@id/Planets_Catalog" />
+        <argument
+            android:name="url"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+</navigation>
